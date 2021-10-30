@@ -93,7 +93,7 @@ function App() {
                 checked={exp.available}
                 onChange={() => onCheckedChange(exp.value)}
               />
-              <label class="form-check-label">{exp.label}</label>
+              <label class="form-check-label">{exp.label} </label>
             </div>
           ))}
         </div>
