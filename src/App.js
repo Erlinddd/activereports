@@ -8,6 +8,7 @@ import "@grapecity/activereports/htmlexport";
 import "@grapecity/activereports/xlsxexport";
 import "@grapecity/activereports-localization";
 import { FontStore } from "@grapecity/activereports/core";
+import Report from "./Report";
 
 const report = {
   Type: "report",
@@ -64,6 +65,9 @@ const exportsSettings = {
 };
 
 function App() {
+
+
+  
   const [allExports, setAllExports] = React.useState([
     { label: "PDF", value: "pdf", available: true },
     { label: "HTML", value: "html", available: true },
@@ -93,7 +97,7 @@ function App() {
                 checked={exp.available}
                 onChange={() => onCheckedChange(exp.value)}
               />
-              <label class="form-check-label">{exp.label} </label>
+              <label class="form-check-label">{exp.label}</label>
             </div>
           ))}
         </div>
@@ -102,8 +106,10 @@ function App() {
       <div id="viewer-host">
         <Viewer
           report={{
-            Uri: "adas.rdlx-json",
+            Uri: "data.rdlx-json",
+        
           }}
+        
           exportsSettings={exportsSettings}
           availableExports={allExports
             .filter((exp) => exp.available)
@@ -111,8 +117,11 @@ function App() {
           sidebarVisible={true}
         />
       </div>
+   
+    
     </Fragment>
   );
 }
 
-export default App
+
+export default App;
